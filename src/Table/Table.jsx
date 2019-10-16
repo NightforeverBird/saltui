@@ -181,6 +181,7 @@ class Table extends React.Component {
               textAlign: column.align,
             };
             const isActionColumn = column.dataKey === 'actionColumn';
+            const titleClassName = column.titleClass == undefined ? "":column.titleClass;
             // todo don't support third subrow
             if (isActionColumn && !this.state.hasSubTable) {
               return null
@@ -191,6 +192,7 @@ class Table extends React.Component {
                 className={classnames({
                   firstRow: index === 0,
                   lastRow: index === cl - 1,
+                  titleClassName:true,
                   [Context.prefixClass('table-header-item omit DIB')]: !isActionColumn,
                   [Context.prefixClass('PL12 PR12')]: isActionColumn
                 })}
